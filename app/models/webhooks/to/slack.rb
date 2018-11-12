@@ -1,6 +1,6 @@
 class Webhooks::To::Slack
   def initialize(mention:, url:, additional_message:)
-    @mention = "@#{mention}"
+    @mention = "<@#{mention}>"
     @channel = @mention == '@everyone' ? '#general' : @mention
     @text = "#{@mention} #{url} #{additional_message}"
     @webhook_uri = ENV.fetch('SLACK_WEBHOOK_URL')
